@@ -1,0 +1,143 @@
+.product-detail {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px;
+}
+
+.back-button {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: #007bff;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.detail-info {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+.img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 15px;
+  background-color: white;
+  box-shadow: gray 0px 5px 15px;
+  height: 400px;
+  width: 400px;
+}
+.detail-image {
+  width: 250px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.detail-text {
+  flex: 1;
+}
+
+.detail-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.detail-price {
+  font-size: 20px;
+  color: #e91e63;
+  margin-bottom: 10px;
+}
+
+.detail-description {
+  font-size: 16px;
+  color: #555;
+}
+
+.buy-button {
+  width: 100%;
+  padding: 15px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.buy-button:hover {
+  background-color: #0056b3;
+}
+
+.buy-button:active {
+  background-color: #003e80;
+}
+
+/* jjorwtbre*/
+
+.installment-container {
+  width: 400px;
+  height: 300px;
+  padding: 20px;
+  border: 3px solid #ddd;
+  border-radius: 8px;
+  background: #f9f9f9;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.installment-options {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 15px;
+}
+
+.installment-options button {
+  width: 100px;
+  height: 40px;
+  border: 2px solid #ddd;
+  background: white;
+  cursor: pointer;
+}
+
+.installment-options .active {
+  background: blue;
+  color: white;
+}
+
+.installment-details {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  border: 2px solid #ddd;
+  width: 300px;
+  padding: 20px;
+  border-radius: 8px;
+  background: white;
+}
+
+.price {
+  color: orange;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.order-btn {
+  background: orange;
+  color: white;
+  padding: 15px 25px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+  border-radius: 10px;
+}
