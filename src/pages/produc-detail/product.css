@@ -11,6 +11,10 @@
   color: #007bff;
   text-decoration: none;
   font-size: 16px;
+  border: blue 2px solid;
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin-top: 30px;
 }
 
 .detail-info {
@@ -57,10 +61,17 @@
   color: #555;
 }
 
-.buy-button {
-  width: 100%;
+.btns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.add-button {
   padding: 15px 20px;
-  background-color: #007bff;
+  width: 200px;
+  background-color: darkolivegreen;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -69,26 +80,47 @@
   transition: background-color 0.3s ease;
 }
 
-.buy-button:hover {
+.new-price-2 {
+  font-weight: 600;
+  font-size: 30px;
+  color: orange;
+}
+
+.add-button:hover {
   background-color: #0056b3;
 }
 
-.buy-button:active {
-  background-color: #003e80;
+.buy-button {
+  width: 200px;
+  padding: 15px 20px;
+  background-color: transparent;
+  border: blue 1px solid;
+  color: blue;
+  font-weight: 500;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.buy-button:hover {
+  background-color: #0056b3;
+  color: white;
 }
 
 /* jjorwtbre*/
 
 .installment-container {
-  width: 400px;
-  height: 300px;
-  padding: 20px;
+  width: 350px;
+  height: 350px;
+  padding: 10px;
   border: 3px solid #ddd;
   border-radius: 8px;
   background: #f9f9f9;
   text-align: center;
   display: flex;
   align-items: center;
+  gap: 15px;
   justify-content: space-between;
   flex-direction: column;
 }
@@ -96,20 +128,24 @@
 .installment-options {
   display: flex;
   justify-content: space-around;
+  gap: 10px;
   margin-bottom: 15px;
 }
 
 .installment-options button {
   width: 100px;
   height: 40px;
-  border: 2px solid #ddd;
+  border-radius: 8px;
+  border: 1px solid rgb(169, 169, 169);
   background: white;
   cursor: pointer;
+  color: grey;
 }
 
 .installment-options .active {
-  background: blue;
-  color: white;
+  opacity: 0.8;
+  border: blue 1px solid;
+  color: black;
 }
 
 .installment-details {
@@ -139,5 +175,40 @@
   cursor: pointer;
   width: 100%;
   margin-top: 10px;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+.order-btn:hover {
+  opacity: 0.8;
+}
+
+.eee {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.summa {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.three-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  flex-direction: column;
+}
+
+.three-img img {
+  width: 100px;
+  height: 100px;
+  padding: 20px;
+  background-color: white;
   border-radius: 10px;
 }
