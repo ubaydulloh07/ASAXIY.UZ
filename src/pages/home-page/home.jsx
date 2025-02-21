@@ -7,6 +7,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./home.css";
+import { useStateValue } from "../context/context";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
@@ -16,6 +17,26 @@ const Home = () => {
   const [sortByRating, setSortByRating] = useState("none");
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+
+  // const { setCount} = useStateValue();
+
+
+  const { setWishlist , wishlist } = useStateValue();
+  
+  const handeAddWishlist = (product) => {
+   const isSomeWishlist = wishlist.some((item) => item.id === product.id) 
+
+
+   if(isSomeWishlist) {
+    setWishlist((item) => item.filter((item) => item.id !== product.id));
+   }else{
+    setWishlist((prev)=> [...prev , product]);
+   }
+   
+  }
+
+
 
   useEffect(() => {
     axios.get("https://dummyjson.com/products?limit=32")
@@ -123,7 +144,7 @@ const Home = () => {
               <p className="installment">{(product.price / 12).toLocaleString()} so'm × 12 oy</p>
               <div className="buttons">
                 <button className="buy-now" onClick={() => { setSelectedProduct(product); setIsModalOpen(true); }}>Sotib olish</button>
-                <button className="add-to-cart">🛒</button>
+                <button onClick={() =>handeAddWishlist(product) } className="add-to-cart">🛒</button>
               </div>
             </div>
           </div>
@@ -154,6 +175,3 @@ const Home = () => {
 };
 
 export default Home;
-
-
-

@@ -10,7 +10,9 @@ export default function Footer() {
             <li><a href="#">Biz haqimizda</a></li>
             <li><a href="#">Hamkorlik</a></li>
             <li><a href="#">Vakansiyalar</a></li>
-            <li><a href="#">Blog</a></li>
+            <li><a href="#">Blog</a></li> 
+            <li><a href="#">Kontaktlar</a></li>
+
           </ul>
         </div>
         <div className="footer-section">
