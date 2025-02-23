@@ -7,7 +7,8 @@ import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
 import Korzinka from "./pages/korzinka-page/korzinka";
 import  { StateProvider } from "./pages/context/context";
-
+import Layk from "./pages/layk-page/layk";
+import Aformt from "./pages/aformt-page/aformt";
 
 
 const App = () => {
@@ -20,6 +21,8 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/product/:id" element={<ProductDetail />} />
           <Route path="/korzinka" element={<Korzinka />} />
+          <Route path="/layk" element={<Layk />} />
+          <Route path="/aformt" element={<Aformt />} />
         </Routes>
         <Footer />
       </div>

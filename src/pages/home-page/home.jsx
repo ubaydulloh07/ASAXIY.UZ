@@ -7,7 +7,9 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./home.css";
-import { useStateValue } from "../context/context";
+import {  useStateValue } from "../context/context";
+import { FaHeart } from "react-icons/fa";
+import { FaShoppingCart } from "react-icons/fa";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
@@ -19,10 +21,9 @@ const Home = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
 
-  // const { setCount} = useStateValue();
-
-
-  const { setWishlist , wishlist } = useStateValue();
+  const { setWishlist , wishlist ,  setLayk , layk } = useStateValue();
+  
+ 
   
   const handeAddWishlist = (product) => {
    const isSomeWishlist = wishlist.some((item) => item.id === product.id) 
@@ -36,6 +37,16 @@ const Home = () => {
    
   }
 
+  const handeAddLayk = (product) => {
+    const isSomeLayk = layk.some((item) => item.id === product.id)
+
+
+    if(isSomeLayk) {
+     setLayk((item) => item.filter((item) => item.id !== product.id));
+    }else{
+     setLayk((prev)=> [...prev , product]);
+    }
+  }
 
 
   useEffect(() => {
@@ -79,6 +90,22 @@ const Home = () => {
 
     return filtered;
   }, [products, searchTerm, sortByName, sortByPrice, sortByRating]);
+
+
+
+
+  const [isLiked, setIsLiked] = useState(false);
+
+  const toggleLike = () => {
+    setIsLiked(!isLiked);
+  };
+
+
+
+
+
+
+
 
   return (
     <div className="home">
@@ -135,6 +162,25 @@ const Home = () => {
       <div className="product-grid">
         {sortedProducts.map(product => (
           <div key={product.id} className="product-card">
+
+<button onClick={() => handeAddLayk(product)} className="layk">
+  <FaHeart
+    size={25}
+    style={{
+      color: layk.some((item) => item.id === product.id) ? "red" : "gray",
+      cursor: "pointer",
+    }}
+  />
+</button>
+
+            {/* <button onClick={() =>handeAddLayk(product) } className="layk">    <FaHeart
+      onClick={toggleLike}
+      size={30}
+      style={{ color: isLiked ? "red" : "gray", cursor: "pointer" }}
+    />
+</button> */}
+
+
             <img src={product.thumbnail} alt={product.title} className="product-image" />
             <div className="product-info">
               <h3 className="product-title">{product.title}</h3>
@@ -144,7 +190,7 @@ const Home = () => {
               <p className="installment">{(product.price / 12).toLocaleString()} so'm × 12 oy</p>
               <div className="buttons">
                 <button className="buy-now" onClick={() => { setSelectedProduct(product); setIsModalOpen(true); }}>Sotib olish</button>
-                <button onClick={() =>handeAddWishlist(product) } className="add-to-cart">🛒</button>
+                <button onClick={() =>handeAddWishlist(product) } className="add-to-cart"><FaShoppingCart className="cart-icon" /></button>
               </div>
             </div>
           </div>

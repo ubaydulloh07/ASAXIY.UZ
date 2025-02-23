@@ -2,12 +2,17 @@ import { Link } from "react-router-dom";
 import "./header.css";
 import { useState } from "react";
 import { useStateValue } from "../../pages/context/context";
-
-
+import { FiShoppingCart } from "react-icons/fi"
+import { FaRegHeart } from "react-icons/fa";
+import { IoPersonOutline } from "react-icons/io5";
+import { TbWorld } from "react-icons/tb";
+import { TbCarSuvFilled } from "react-icons/tb";
+import { IoCardOutline } from "react-icons/io5";
+import { FaScaleBalanced } from "react-icons/fa6";
 const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const {wishlist} = useStateValue(); 
+  const {wishlist , layk} = useStateValue(); 
 
 
     return (
@@ -31,38 +36,38 @@ const Header = () => {
         <div className="header-icons">
 
          <div className="link-1">
-           <p>⚖️</p>
+           <p><FaScaleBalanced /></p>
           <Link>Сравнение</Link>
         </div>
 
         <div className="link-1">
-          <p>💳</p>
+          <p><IoCardOutline /></p>
           <Link>Оплатить</Link>
         </div>
 
         <div className="link-1">
-        <p>🚚</p>
+        <p> <TbCarSuvFilled /></p>
           <Link>Отследить</Link>
         </div>
 
         <div className="link-1">
-            <p>🛒  <span className="badge">{wishlist.length}</span></p>
+            <p><FiShoppingCart /> <span className="badge">{wishlist.length}</span></p>
           <Link to="/korzinka"  className="cart"> Корзина </Link>
         </div>
     
             <div className="link-1">
-            <p>❤️  <span className="badges">0</span></p>
-          <Link> Избранное </Link>
+            <p> <FaRegHeart /> <span className="badges">{layk.length}</span></p>
+          <Link to="/layk" > Избранное </Link>
             </div>
 
             <div className="link-1">
-                <p>🌐</p>
+                <p><TbWorld /></p>
           <Link>O'zbekcha</Link>
 
             </div>
 
             <div className="link-1" onClick={() => setIsModalOpen(true)}>
-                <p>👤</p>
+                <p> <IoPersonOutline /></p>
           <Link> Войти</Link>
             </div>
 

@@ -1,66 +1,108 @@
 
-import "./korzinka.css"
+
+import "./korzinka.css";
 import { useStateValue } from "../context/context";
-// import { useState } from "react";
+import { useState, useEffect } from "react";
 
+import { Link } from "react-router-dom";
 
-function Korzinka () {
+function Korzinka() {
+  const { wishlist } = useStateValue();
+  const [counts, setCounts] = useState({});
+  const [totalPrice, setTotalPrice] = useState(0);
 
-      
-  const {wishlist , setWishlist} = useStateValue();
+  useEffect(() => {
+    let initialCounts = {};
+    let initialTotal = 0;
+    wishlist.forEach((product) => {
+      initialCounts[product.id] = 1;
+      initialTotal += product.price;
+    });
+    setCounts(initialCounts);
+    setTotalPrice(initialTotal);
+  }, [wishlist]);
 
-  const removeFromWishlist = (id) => {
-    setWishlist((prev) => prev.filter((product) => product.id !== id));
+  const handleIncrement = (id, price) => {
+    setCounts((prev) => {
+      const newCount = (prev[id] || 1) + 1;
+      return { ...prev, [id]: newCount };
+    });
+    setTotalPrice((prevTotal) => prevTotal + price);
   };
-  
-    
+
+  const handleDecrement = (id, price) => {
+    setCounts((prev) => {
+      const newCount = Math.max((prev[id] || 1) - 1, 1);
+      return { ...prev, [id]: newCount };
+    });
+    setTotalPrice((prevTotal) => (counts[id] > 1 ? prevTotal - price : prevTotal));
+  };
+
+  return (
+    <div>
+
+      <div className="headerss">
+        <h1>Sevimli mahsulotlar</h1>
+      </div>
+
+      <div className="content">
+
+      <div className="content-title">
+        <h2>Корзина</h2>
+      </div>
+
+    <div className="pokup">
+      <button className="active">Стандартные покупки</button>
+      <button className="active-2">Товары на рассрочку</button>
+    </div>
 
 
 
-    return (
-<div>
-
-  <div className="headerss">
-    
-    <h1>Sevimli mahsulotlar</h1>
-  </div>
+      </div>
 
 
-    <div className="product-grid">
-    {
-        wishlist.map((product) => (
-            <div key={product.id} className="product-card">
-            <img src={product.thumbnail} alt={product.title} className="product-image" />
-            <div className="product-info">
-              <h3 className="product-title">{product.title}</h3>
-              <div className="rating">{"⭐".repeat(Math.round(product.rating))}</div>
-              <p className="old-price">{(product.price * 1.3).toLocaleString()} so'm </p>
-              <p className="new-price">{product.price.toLocaleString()} so'm</p>
-              <p className="installment">{(product.price / 12).toLocaleString()} so'm × 12 oy</p>
-              <div className="buttons">
-                <button className="buy-now" onClick={() => { setSelectedProduct(product); setIsModalOpen(true); }}>Sotib olish</button>
-                {/* <button onClick={() => {
-                   setCount((p) => p + 1) 
-                   
-                }}  className="add-to-cart">🛒</button> */}
 
-                <button className="remove" onClick={() => removeFromWishlist(product.id)}>❌</button>
+
+
+      <div className="dfll">
+        <div className="product-11">
+          {wishlist.map((product) => (
+            <div key={product.id} className="product-1">
+              <img src={product.thumbnail} alt={product.title} className="product-img" />
+
+              <div className="ppqq">
+                <h3 className="product-t">{product.title}</h3>
+                <h3 className="pro-brand">{product.brand}</h3>
+              </div>
+
+              <div className="pro-count">
+                <button className="minus" onClick={() => handleDecrement(product.id, product.price)}>-</button>
+                <p>{counts[product.id]}</p>
+                <button className="plus" onClick={() => handleIncrement(product.id, product.price)}>+</button>
+              </div>
+
+              <div className="product-2">
+                <div className="product-3">
+                  <p className="eski-narx">{(product.price * 1.3).toLocaleString()} so'm </p>
+                  <p className="yengi-narx">{product.price.toLocaleString()} so'm</p>
+                  <p className="ins">{(product.price / 12).toLocaleString()} so'm × 12 oy</p>
+                </div>
               </div>
             </div>
-          </div>
+          ))}
+        </div>
 
-          
-        ))
-        
-      }
+
+        <div className="cart-summary">
+          <h3>В корзине {Object.values(counts).reduce((a, b) => a + b, 0)} товара</h3>
+          <p>Общая сумма: {totalPrice.toLocaleString()} so'm</p>
+          <Link to="/aformt">
+          <button className="checkout-btn">ОФОРМИТЬ</button>
+          </Link>
+        </div>
       </div>
-</div>
-
-               
-    )
-  }
-
-
-
+    </div>
+  );
+}
 
 export default Korzinka;
