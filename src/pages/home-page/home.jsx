@@ -11,6 +11,9 @@ import {  useStateValue } from "../context/context";
 import { FaHeart } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
 
+
+import { useTranslation } from "react-i18next";
+
 const Home = () => {
   const [products, setProducts] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -21,9 +24,10 @@ const Home = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
 
+
   const { setWishlist , wishlist ,  setLayk , layk } = useStateValue();
   
- 
+   const [ t , i18n] = useTranslation()
   
   const handeAddWishlist = (product) => {
    const isSomeWishlist = wishlist.some((item) => item.id === product.id) 
@@ -120,25 +124,40 @@ const Home = () => {
         />
 
         <select value={sortByName} onChange={(e) => setSortByName(e.target.value)}>
-          <option value="none">Nomi b'yicha</option>
+          <option value="none">{t('nomi')}</option>
           <option value="asc">A dan Z gacha</option>
           <option value="desc">Z dan A gacha</option>
         </select>
 
         <select value={sortByPrice} onChange={(e) => setSortByPrice(e.target.value)}>
-          <option value="none">Narx</option>
+          <option value="none">{t("narx")}</option>
           <option value="asc">Eng arzon</option>
           <option value="desc">Eng qimmat</option>
         </select>
 
         <select value={sortByRating} onChange={(e) => setSortByRating(e.target.value)}>
-          <option value="none">Reyting</option>
+          <option value="none">{ t("Reyting")}</option>
           <option value="asc">O'sish tartibida</option>
           <option value="desc">Kamayish tartibida</option>
         </select>
       </div>
 
-      <h2 className="sena">Super narx</h2>
+
+      <div className="change-lang">
+        <button className="uz" onClick={() => {
+          i18n.changeLanguage('uz')
+        }}>UZ</button>
+
+        <button className="rus"  onClick={() => {
+          i18n.changeLanguage('ru')
+        }}>RU</button>
+
+        <button className="en"  onClick={() => {
+          i18n.changeLanguage('en')
+        }}>EN</button>
+      </div>
+
+      <h2 className="sena">{t("super")}</h2>
 
       <Slider key={sortedProducts.length} {...settings} className="carousel">
   {sortedProducts.slice(0, 10).map(product => (
@@ -158,7 +177,7 @@ const Home = () => {
 </Slider>
 
 
-      <h2 className="home-title">Barcha mahsulotlar</h2>
+      <h2 className="home-title">{t("barcha")}</h2>
       <div className="product-grid">
         {sortedProducts.map(product => (
           <div key={product.id} className="product-card">

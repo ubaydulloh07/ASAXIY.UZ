@@ -1,0 +1,36 @@
+ {
+     "Welcome to React": "Добро пожаловать в React и react-i18next",
+     "category": "Категория",
+     "super": "Супер цена",
+     "btnsubmit" : "Подтвердить",
+     "tarozi" : "Сравнение",
+     "oplata" : "Оплатить",
+     "deliver" : "Отследить",
+     "korzina" : "Корзина",
+     "layk"  : "Избранное",
+     "lng" : " Русский",
+     "login" : "Войти",
+     "nomi" : "По имени",
+     "narx" : "По цене",
+     "Reyting" : "Рейтинг",
+     "barcha" : "Все продукты",
+      "kompaniya" : "Компания",
+      "biz" : "О нас",
+      "hamkorlik": "Сотрудничество",
+      "batafsil": "Подробнее",
+      "vakansiyalar": "Вакансии",
+      "yangiliklar": "Новости",
+      "blog": "Блог",
+      "kontaktlar": "Контакты",
+      "foydali" : "Полезное",
+      "yetkaz" : "Отследить" ,
+      "tolov" : "Оплата" ,
+      "kafolat" : "гарантия" ,
+      "Qaytarish" : "Возврат",
+      "Aloqa" : "Связаться",
+      "Manzil" : "Адрес: Ташкент",
+      "tarmoqlar" : "Социальные сети"
+
+    
+    }
+

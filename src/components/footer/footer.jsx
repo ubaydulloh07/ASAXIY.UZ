@@ -1,39 +1,44 @@
 import "./footer.css";
+import { useTranslation } from "react-i18next";
 
 export default function Footer() {
+
+  const [t, i18n] = useTranslation();
+
+
   return (
     <footer className="footer">
       <div className="container">
         <div className="footer-section">
-          <h3>Kompaniya</h3>
+          <h3>{t('kompaniya')}</h3>
           <ul>
-            <li><a href="#">Biz haqimizda</a></li>
-            <li><a href="#">Hamkorlik</a></li>
-            <li><a href="#">Vakansiyalar</a></li>
-            <li><a href="#">Blog</a></li> 
-            <li><a href="#">Kontaktlar</a></li>
+            <li><a href="#">{t('biz')}</a></li>
+            <li><a href="#">{t('hamkorlik')}</a></li>
+            <li><a href="#">{t('vakansiyalar')}</a></li>
+            <li><a href="#">{t('yangiliklar')}</a></li> 
+            <li><a href="#">{t('blog')}</a></li>
 
           </ul>
         </div>
         <div className="footer-section">
-          <h3>Foydali</h3>
+          <h3>{t('foydali')}</h3>
           <ul>
-            <li><a href="#">Yetkazib berish</a></li>
-            <li><a href="#">To'lov usullari</a></li>
-            <li><a href="#">Kafolat</a></li>
-            <li><a href="#">Qaytarish</a></li>
+            <li><a href="#">{t('yetkaz')}</a></li>
+            <li><a href="#">{t('tolov')}</a></li>
+            <li><a href="#">{t('kafolat')}</a></li>
+            <li><a href="#">{t('Qaytarish')}</a></li>
           </ul>
         </div>
         <div className="footer-section">
-          <h3>Aloqa</h3>
+          <h3>{t('Aloqa')}</h3>
           <ul>
             <li><a href="#">+998 71 200 00 00</a></li>
             <li><a href="#">info@asaxiy.uz</a></li>
-            <li><a href="#">Manzil: Toshkent</a></li>
+            <li><a href="#">{t('Manzil')}</a></li>
           </ul>
         </div>
         <div className="footer-section">
-          <h3>Ijtimoiy tarmoqlar</h3>
+          <h3>{t('tarmoqlar')}</h3>
           <div className="social-icons">
             <a href="#">📘</a>
             <a href="#">📸</a>

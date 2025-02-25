@@ -9,8 +9,12 @@ import { TbWorld } from "react-icons/tb";
 import { TbCarSuvFilled } from "react-icons/tb";
 import { IoCardOutline } from "react-icons/io5";
 import { FaScaleBalanced } from "react-icons/fa6";
+import { useTranslation } from "react-i18next";
 const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+
+  const [ t , i18n] = useTranslation();
 
   const {wishlist , layk} = useStateValue(); 
 
@@ -25,11 +29,11 @@ const Header = () => {
        
         </div>
         <button className="category-btn">
-          <span>&#9776;</span> Kategoriyalar
+          <span>&#9776;</span>{t("category")}
         </button>
         <div className="search-box">
           <input type="text" placeholder="Поиск..." />
-          <button>Искать</button>
+          <button>{t('btnsubmit')}</button>
         </div>
 
         </div>
@@ -37,38 +41,38 @@ const Header = () => {
 
          <div className="link-1">
            <p><FaScaleBalanced /></p>
-          <Link>Сравнение</Link>
+          <Link>{t('tarozi')}</Link>
         </div>
 
         <div className="link-1">
           <p><IoCardOutline /></p>
-          <Link>Оплатить</Link>
+          <Link>{t('oplata')}</Link>
         </div>
 
         <div className="link-1">
         <p> <TbCarSuvFilled /></p>
-          <Link>Отследить</Link>
+          <Link>{t('deliver')}</Link>
         </div>
 
         <div className="link-1">
             <p><FiShoppingCart /> <span className="badge">{wishlist.length}</span></p>
-          <Link to="/korzinka"  className="cart"> Корзина </Link>
+          <Link to="/korzinka"  className="cart"> {t('korzina')} </Link>
         </div>
     
             <div className="link-1">
             <p> <FaRegHeart /> <span className="badges">{layk.length}</span></p>
-          <Link to="/layk" > Избранное </Link>
+          <Link to="/layk" > {t('layk')} </Link>
             </div>
 
             <div className="link-1">
                 <p><TbWorld /></p>
-          <Link>O'zbekcha</Link>
+              <Link> {t('lng')} </Link>
 
             </div>
 
             <div className="link-1" onClick={() => setIsModalOpen(true)}>
                 <p> <IoPersonOutline /></p>
-          <Link> Войти</Link>
+          <Link> {t('login')}</Link>
             </div>
 
         </div>

@@ -10,6 +10,8 @@ import  { StateProvider } from "./pages/context/context";
 import Layk from "./pages/layk-page/layk";
 import Aformt from "./pages/aformt-page/aformt";
 
+import "./components/utils/i18n" ;  
+
 
 const App = () => {
   return (

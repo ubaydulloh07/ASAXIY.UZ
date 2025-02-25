@@ -264,3 +264,68 @@
 .cart-icon {
   font-size: 20px;
 }
+
+.change-lang {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.uz {
+  font-size: 20px;
+  font-weight: 500;
+  color: #007bff;
+  cursor: pointer;
+  width: 100px;
+  padding: 10px;
+  height: 40px;
+  background-color: white;
+  border: #007bff 2px solid;
+  transition: all 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+.uz:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.rus {
+  font-size: 20px;
+  font-weight: 500;
+  color: #007bff;
+  cursor: pointer;
+  width: 100px;
+  padding: 10px;
+  height: 40px;
+  background-color: white;
+  border: #007bff 2px solid;
+  transition: all 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+.rus:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.en {
+  font-size: 20px;
+  font-weight: 500;
+  color: #007bff;
+  cursor: pointer;
+  width: 100px;
+  padding: 10px;
+  height: 40px;
+  background-color: white;
+  border: #007bff 2px solid;
+  transition: all 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+.en:hover {
+  background-color: #007bff;
+  color: white;
+}
